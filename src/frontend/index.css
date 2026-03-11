@@ -1,0 +1,298 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ─────────────────────────────────────────────── */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora[wght].woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ── OKLCH Design Tokens ─────────────────────────────────── */
+@layer base {
+  :root {
+    /* Light mode */
+    --background: 0.97 0.01 260;
+    --foreground: 0.15 0.02 260;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 260;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 260;
+    --primary: 0.75 0.18 200;
+    --primary-foreground: 0.07 0.01 260;
+    --secondary: 0.65 0.22 295;
+    --secondary-foreground: 1 0 0;
+    --muted: 0.92 0.01 260;
+    --muted-foreground: 0.55 0.02 260;
+    --accent: 0.75 0.18 200;
+    --accent-foreground: 0.07 0.01 260;
+    --destructive: 0.6 0.22 25;
+    --destructive-foreground: 1 0 0;
+    --border: 0.88 0.02 260;
+    --input: 0.88 0.02 260;
+    --ring: 0.75 0.18 200;
+    --radius: 0.75rem;
+    --chart-1: 0.75 0.18 200;
+    --chart-2: 0.65 0.22 295;
+    --chart-3: 0.7 0.2 160;
+    --chart-4: 0.65 0.2 50;
+    --chart-5: 0.6 0.22 25;
+    --sidebar: 0.94 0.01 260;
+    --sidebar-foreground: 0.15 0.02 260;
+    --sidebar-primary: 0.75 0.18 200;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.9 0.02 260;
+    --sidebar-accent-foreground: 0.15 0.02 260;
+    --sidebar-border: 0.88 0.02 260;
+    --sidebar-ring: 0.75 0.18 200;
+
+    /* Portfolio custom */
+    --neon-blue: #00d4ff;
+    --neon-purple: #a855f7;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    --background: 0.07 0.015 260;
+    --foreground: 0.95 0.005 260;
+    --card: 0.1 0.02 260;
+    --card-foreground: 0.95 0.005 260;
+    --popover: 0.1 0.02 260;
+    --popover-foreground: 0.95 0.005 260;
+    --primary: 0.82 0.17 200;
+    --primary-foreground: 0.07 0.01 260;
+    --secondary: 0.65 0.27 295;
+    --secondary-foreground: 1 0 0;
+    --muted: 0.15 0.02 260;
+    --muted-foreground: 0.55 0.02 260;
+    --accent: 0.82 0.17 200;
+    --accent-foreground: 0.07 0.01 260;
+    --destructive: 0.6 0.22 25;
+    --destructive-foreground: 1 0 0;
+    --border: 0.2 0.02 260;
+    --input: 0.2 0.02 260;
+    --ring: 0.82 0.17 200;
+    --chart-1: 0.82 0.17 200;
+    --chart-2: 0.65 0.27 295;
+    --chart-3: 0.75 0.2 160;
+    --chart-4: 0.7 0.2 50;
+    --chart-5: 0.65 0.22 25;
+    --sidebar: 0.1 0.02 260;
+    --sidebar-foreground: 0.95 0.005 260;
+    --sidebar-primary: 0.82 0.17 200;
+    --sidebar-primary-foreground: 0.07 0.01 260;
+    --sidebar-accent: 0.15 0.02 260;
+    --sidebar-accent-foreground: 0.95 0.005 260;
+    --sidebar-border: 0.2 0.02 260;
+    --sidebar-ring: 0.82 0.17 200;
+
+    /* Portfolio custom */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Sora", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: "Geist Mono", monospace;
+  }
+}
+
+/* ── Custom keyframes ─────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+@keyframes neonPulse {
+  0%, 100% { box-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; }
+  50% { box-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 60px #a855f7; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-float-delay-1 { animation: float 3.5s ease-in-out infinite 0.5s; }
+.animate-float-delay-2 { animation: float 4s ease-in-out infinite 1s; }
+.animate-float-delay-3 { animation: float 3.2s ease-in-out infinite 1.5s; }
+.animate-float-delay-4 { animation: float 3.8s ease-in-out infinite 2s; }
+.animate-neon-pulse { animation: neonPulse 2s ease-in-out infinite; }
+.animate-bounce-slow { animation: bounce-slow 1.5s ease-in-out infinite; }
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-gradient { animation: gradientShift 4s ease infinite; }
+
+/* ── Glassmorphism utility ─────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15), 0 0 30px rgba(168, 85, 247, 0.1);
+}
+
+/* ── Neon text ─────────────────────────────────────────────── */
+.neon-text {
+  background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.neon-text-blue {
+  background: linear-gradient(90deg, #00d4ff, #00a8cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Neon border glow ──────────────────────────────────────── */
+.neon-border {
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.2), inset 0 0 8px rgba(0, 212, 255, 0.05);
+}
+
+.neon-border-purple {
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.2), inset 0 0 8px rgba(168, 85, 247, 0.05);
+}
+
+/* ── Section heading ─────────────────────────────────────── */
+.section-heading {
+  @apply text-3xl md:text-4xl font-bold mb-2;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+/* ── Scroll reveal base ──────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Timeline ────────────────────────────────────────────── */
+.timeline-line {
+  background: linear-gradient(to bottom, #00d4ff, #a855f7);
+  box-shadow: 0 0 10px #00d4ff;
+  width: 2px;
+}
+
+/* ── Skill pill ──────────────────────────────────────────── */
+.skill-pill {
+  @apply px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(6px);
+}
+.skill-pill:hover {
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ── Tech badge ──────────────────────────────────────────── */
+.tech-badge {
+  @apply px-2 py-0.5 rounded text-xs font-mono font-semibold;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: #00d4ff;
+}
+
+.tech-badge-purple {
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #a855f7;
+}
+
+/* ── Grid background ─────────────────────────────────────── */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 8s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00d4ff, #a855f7);
+  border-radius: 3px;
+}
