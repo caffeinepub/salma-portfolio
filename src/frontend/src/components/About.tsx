@@ -2,11 +2,9 @@ import {
   Code2,
   Database,
   GitBranch,
-  Lightbulb,
   MapPin,
   Network,
   Rocket,
-  User,
 } from "lucide-react";
 import { memo, useEffect, useRef } from "react";
 
@@ -28,13 +26,6 @@ const currentStatus = [
   "Open to internship opportunities",
   "Learning new technologies daily",
   "Building real-world projects",
-];
-
-const identityTags = [
-  { label: "Tech Enthusiast", icon: Lightbulb, color: "#00d4ff" },
-  { label: "B.Tech T&T Student", icon: User, color: "#a855f7" },
-  { label: "Problem Solver", icon: Code2, color: "#a855f7" },
-  { label: "Future Software Developer", icon: Rocket, color: "#00d4ff" },
 ];
 
 function About() {
@@ -138,33 +129,6 @@ function About() {
                   >
                     <Icon className="w-4 h-4 text-[#a855f7] flex-shrink-0" />
                     <span className="text-sm text-foreground/80">{label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Identity tags 2x2 */}
-            <div className="glass rounded-2xl p-6 reveal">
-              <h3 className="font-display font-semibold text-lg mb-4 text-[#a855f7]">
-                Who I Am
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {identityTags.map(({ label, icon: Icon, color }) => (
-                  <div
-                    key={label}
-                    className="flex items-center gap-2 p-3 rounded-xl transition-all hover:scale-105"
-                    style={{
-                      background: `${color}10`,
-                      border: `1px solid ${color}30`,
-                    }}
-                  >
-                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
-                    <span
-                      className="text-xs font-semibold font-mono"
-                      style={{ color }}
-                    >
-                      {label}
-                    </span>
                   </div>
                 ))}
               </div>
