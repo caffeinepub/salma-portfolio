@@ -74,8 +74,9 @@ function ResumeSection() {
 
         {/* Download button */}
         <div className="flex justify-center mb-16 reveal">
-          <button
-            type="button"
+          <a
+            href="/assets/uploads/my-resume-1.jpeg"
+            download="Salma_Tabassum_Resume.jpeg"
             data-ocid="resume.primary_button"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-display font-bold text-lg transition-all duration-300 hover:scale-105 animate-neon-pulse"
             style={{
@@ -87,7 +88,7 @@ function ResumeSection() {
           >
             <Download className="w-5 h-5" />
             Download My Resume
-          </button>
+          </a>
         </div>
 
         {/* 4 Highlight boxes in 2x2 grid */}

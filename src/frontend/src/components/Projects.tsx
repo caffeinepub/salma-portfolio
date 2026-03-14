@@ -4,9 +4,26 @@ import { memo, useEffect, useRef } from "react";
 const projects = [
   {
     id: 1,
+    icon: "🚑",
+    title: "Traffic AI",
+    subtitle: "AI Powered Emergency Traffic Control System",
+    badge: "🏆 1st Prize – IdeaSprint 24-Hour Hackathon, KITSW Warangal",
+    description:
+      "Built a real-time dashboard for ambulance routing and traffic signal pre-emption. Implemented route visualization using Leaflet and OpenStreetMap API.",
+    features: [
+      "Real-time ambulance routing dashboard",
+      "Traffic signal pre-emption system",
+      "Route visualization with Leaflet & OpenStreetMap",
+    ],
+    tech: ["React", "TypeScript", "Leaflet", "OpenStreetMap"],
+    color: "#f97316",
+  },
+  {
+    id: 2,
     icon: "💼",
     title: "Payroll Management System",
     subtitle: "in C",
+    badge: "",
     description:
       "Manages employee records and automates salary calculation with a clean data structure approach.",
     features: [
@@ -18,10 +35,11 @@ const projects = [
     color: "#00d4ff",
   },
   {
-    id: 2,
+    id: 3,
     icon: "💡",
     title: "Automatic Street Light System",
     subtitle: "",
+    badge: "",
     description:
       "Smart street light using Arduino UNO and LDR sensor for automatic ON/OFF control based on ambient light.",
     features: [
@@ -33,10 +51,11 @@ const projects = [
     color: "#a855f7",
   },
   {
-    id: 3,
+    id: 4,
     icon: "🚗",
     title: "Car Rental Reservation System",
     subtitle: "",
+    badge: "",
     description:
       "Java application using OOP principles for comprehensive car rental and reservation management.",
     features: [
@@ -91,7 +110,7 @@ function Projects() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, idx) => (
             <div
               key={project.id}
@@ -109,17 +128,31 @@ function Projects() {
                 <div className="mb-4">
                   <div className="flex items-center gap-3 mb-1">
                     <span className="text-3xl">{project.icon}</span>
-                    <h3
-                      className="font-display font-bold text-lg leading-tight"
-                      style={{ color: project.color }}
-                    >
-                      {project.title}
-                    </h3>
+                    <div>
+                      <h3
+                        className="font-display font-bold text-lg leading-tight"
+                        style={{ color: project.color }}
+                      >
+                        {project.title}
+                      </h3>
+                      {project.subtitle && (
+                        <span className="text-muted-foreground text-sm">
+                          {project.subtitle}
+                        </span>
+                      )}
+                    </div>
                   </div>
-                  {project.subtitle && (
-                    <span className="text-muted-foreground text-sm ml-12">
-                      {project.subtitle}
-                    </span>
+                  {project.badge && (
+                    <div
+                      className="mt-2 px-3 py-1.5 rounded-lg text-xs font-semibold inline-block"
+                      style={{
+                        background: `${project.color}20`,
+                        border: `1px solid ${project.color}50`,
+                        color: project.color,
+                      }}
+                    >
+                      {project.badge}
+                    </div>
                   )}
                 </div>
 
